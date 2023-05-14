@@ -22,4 +22,6 @@ public class MyTestingClass {
 
     public String getName() {}
 
+    public String setName() {}
+
 }
