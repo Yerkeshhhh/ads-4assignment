@@ -34,10 +34,13 @@ public class MyTestingClass {
         MyTestingClass obj1 = new MyTestingClass(1, "Yerkebulan");
         MyTestingClass obj2 = new MyTestingClass(2, "Temirlan");
         MyTestingClass obj3 = new MyTestingClass(3, "Sagidolla");
+        MyTestingClass obj4 = new MyTestingClass(4, "Yerzhan");
+
 
         System.out.println("obj1.hashCode() = "+obj1.hashCode());
         System.out.println("obj2.hashCode() = "+obj2.hashCode());
         System.out.println("obj3.hashCode() = "+obj3.hashCode());
+        System.out.println("onj4.hashCode() = "+obj4.hashCode());
     }
 
 }
