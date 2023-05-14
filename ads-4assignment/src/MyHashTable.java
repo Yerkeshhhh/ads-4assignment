@@ -27,7 +27,9 @@ public class MyHashTable<K, V> {
         chainArray = new HashNode[M];
     }
 
-    private int hash(K key) {}
+    private int hash(K key) {
+        return (key.hashCode() & 0x7fffffff) % M;
+    }
 
     public void put(K key, V value) {
         int index = hash(key);
