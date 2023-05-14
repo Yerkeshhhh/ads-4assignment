@@ -40,6 +40,11 @@ public class MyHashTable<K, V> {
             }
             node=node.next;
         }
+
+        HashNode<K, V> newNode = new HashNode<>(key, value);
+        newNode.next=chainArray[index];
+        chainArray[index]=newNode;
+        size++;
     }
 
     public V get(K key) {}
