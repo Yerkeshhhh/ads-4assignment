@@ -17,4 +17,9 @@ public class MyTestingClass {
     public int getId() {
         return id;
     }
+
+    public void setId() {}
+
+    public String getName() {}
+
 }
