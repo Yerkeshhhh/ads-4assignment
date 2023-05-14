@@ -23,7 +23,9 @@ public class MyHashTable<K, V> {
         chainArray=new HashNode[M];
     }
 
-    public MyHashTable(int M) {}
+    public MyHashTable(int M) {
+        chainArray = new HashNode[M];
+    }
 
     private int hash(K key) {}
 
