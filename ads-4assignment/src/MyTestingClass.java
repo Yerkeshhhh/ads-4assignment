@@ -19,7 +19,7 @@ public class MyTestingClass {
     }
 
     public void setId() {
-
+        this.id=id;
     }
 
     public String getName() {
