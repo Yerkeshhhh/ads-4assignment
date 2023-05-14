@@ -18,9 +18,13 @@ public class MyTestingClass {
         return id;
     }
 
-    public void setId() {}
+    public void setId() {
 
-    public String getName() {}
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public String setName() {}
 
