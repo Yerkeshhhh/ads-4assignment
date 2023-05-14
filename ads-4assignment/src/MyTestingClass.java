@@ -30,4 +30,14 @@ public class MyTestingClass {
         this.name=name;
     }
 
+    public static void main(String[] args) {
+        MyTestingClass obj1 = new MyTestingClass(1, "Yerkebulan");
+        MyTestingClass obj2 = new MyTestingClass(2, "Temirlan");
+        MyTestingClass obj3 = new MyTestingClass(3, "Sagidolla");
+
+        System.out.println("obj1.hashCode() = "+obj1.hashCode());
+        System.out.println("obj2.hashCode() = "+obj2.hashCode());
+        System.out.println("obj3.hashCode() = "+obj3.hashCode());
+    }
+
 }
