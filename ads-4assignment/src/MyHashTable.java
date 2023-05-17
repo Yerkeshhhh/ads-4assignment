@@ -124,7 +124,5 @@ public class MyHashTable<K, V> {
         return false;
     }
 
-    public HashNode<K, V>[] getChainArray() {
-        return chainArray;
-    }
+
 }

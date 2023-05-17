@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class MyTestingClass {
     private int id;
     private String name;
@@ -60,6 +62,14 @@ public class MyTestingClass {
 
         System.out.println("Contains key key2: " + table.containsKey(key2));
 
+        for (int i = 0; i < 10000; i++) {
+            Random random = new Random();
+            int id = random.nextInt(10000);
+            String name = "Element" + i;
+            MyTestingClass key = new MyTestingClass(id, name);
+            String value = "Value" + i;
+            table.put(key, value);
+        }
     }
 }
 
