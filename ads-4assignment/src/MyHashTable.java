@@ -1,3 +1,5 @@
+import java.security.Key;
+
 public class MyHashTable<K, V> {
     private class HashNode<K, V> {
         private K key;
@@ -107,6 +109,19 @@ public class MyHashTable<K, V> {
             }
         }
         return null;
+    }
+
+    public boolean containsKey(K key) {
+        int index = hash(key);
+        HashNode<K, V> node = chainArray[index];
+
+        while (node!=null) {
+            if (node.key.equals(key)) {
+                return true;
+            }
+            node=node.next;
+        }
+        return false;
     }
 
     public HashNode<K, V>[] getChainArray() {
