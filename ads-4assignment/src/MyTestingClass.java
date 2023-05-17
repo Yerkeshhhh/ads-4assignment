@@ -1,55 +1,74 @@
-import java.util.Random;
-
 public class MyTestingClass {
     private int id;
     private String name;
 
     public MyTestingClass(int id, String name) {
-        this.id=id;
-        this.name=name;
+        this.id = id;
+        this.name = name;
     }
 
+    @Override
     public int hashCode() {
-        int result=17;
-        result=31*result+id;
-        result=31*result+name.hashCode();
+        // Custom hashCode implementation
+        int prime = 31;
+        int result = 1;
+        result = prime * result + id;
+        result = prime * result + (name == null ? 0 : name.hashCode());
         return result;
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public boolean equals(Object obj) {
+        // Custom equals implementation
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        MyTestingClass other = (MyTestingClass) obj;
+        return id == other.id && (name == null ? other.name == null : name.equals(other.name));
     }
 
-    public void setId() {
-        this.id=id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void  setName() {
-        this.name=name;
+    @Override
+    public String toString() {
+        return "MyTestingClass [id=" + id + ", name=" + name + "]";
     }
 
     public static void main(String[] args) {
+        MyHashTable<MyTestingClass, String> table = new MyHashTable<>();
 
-        MyTestingClass obj1 = new MyTestingClass(1, "Alice");
-        MyTestingClass obj2 = new MyTestingClass(2, "Bob");
-        MyTestingClass obj3 = new MyTestingClass(1, "Alice");
+        // Put elements in the hashtable
+        MyTestingClass key1 = new MyTestingClass(1, "Element1");
+        String value1 = "Value1";
+        table.put(key1, value1);
 
-        System.out.println("obj1.hashCode() = " + obj1.hashCode());
-        System.out.println("obj2.hashCode() = " + obj2.hashCode());
-        System.out.println("obj3.hashCode() = " + obj3.hashCode());
+        MyTestingClass key2 = new MyTestingClass(2, "Element2");
+        String value2 = "Value2";
+        table.put(key2, value2);
 
-        MyHashTable<MyTestingClass, Student> table = new MyHashTable<>();
-        Random rand = new Random();
+        MyTestingClass key3 = new MyTestingClass(3, "Element3");
+        String value3 = "Value3";
+        table.put(key3, value3);
 
-        //this is for adding 10000 random elements
-        for (int i = 0; i < 10000; i++) {
-            MyTestingClass key = new MyTestingClass(rand.nextInt(1000), "name" + i);
-            Student value = new Student("student" + i, i % 5 + 1);
-            table.put(key, value);
-        }
+        // Get values using keys
+        System.out.println("Value for key1: " + table.get(key1));
+        System.out.println("Value for key2: " + table.get(key2));
+        System.out.println("Value for key3: " + table.get(key3));
+
+        // Remove an element
+        table.remove(key2);
+
+        // Check if a value exists in the hashtable
+        System.out.println("Contains value 'Value2': " + table.containsValue("Value2"));
+
+        // Get the key for a value
+        System.out.println("Key for value 'Value3': " + table.getKey("Value3"));
+
+        // Check if a key exists in the hashtable
+        System.out.println("Contains key key2: " + table.containsKey(key2));
+
     }
 }
+
+
